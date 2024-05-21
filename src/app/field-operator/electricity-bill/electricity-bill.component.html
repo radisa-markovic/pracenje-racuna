@@ -1,0 +1,31 @@
+<form>
+    <h1>Unesi račun za struju</h1>
+    <label for="electricitySpent">
+        Potrošena struja
+    </label>
+    <input 
+        type="number" 
+        name="electricitySpent" 
+        id="electricitySpent"
+    />
+
+    <label for="electricityBillPicture">
+        Slika računa
+    </label>
+    <input 
+        type="file" 
+        (change)="uploadImage($event)"
+        name="electricitySpent" 
+        id="electricitySpent"
+    />
+    <img 
+        [src]="actualImage"
+    />
+
+    <button 
+        type="submit"
+        (click)="confirmBill()"    
+    >
+        Pošalji račun
+    </button>
+</form>

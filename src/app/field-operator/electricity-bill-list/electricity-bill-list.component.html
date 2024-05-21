@@ -1,0 +1,12 @@
+<ul>
+    @for(electricityBill of electricityBills; track electricityBill.id) {
+        <li> 
+            <h2>
+                {{ electricityBill.companyName }}
+            </h2> 
+            <p>
+                {{ electricityBill.price }}
+            </p>        
+        </li>
+    }
+</ul>

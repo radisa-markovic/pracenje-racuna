@@ -1,0 +1,16 @@
+{
+    "electricityBills": [
+        {
+            "id": 0,
+            "companyName": "Kompanija 1",
+            "receiptImageURL": "",
+            "price": 1000
+        },
+        {
+            "id": 1,
+            "companyName": "Kompanija 2",
+            "receiptImageURL": "",
+            "price": 2000
+        }
+    ]
+}
