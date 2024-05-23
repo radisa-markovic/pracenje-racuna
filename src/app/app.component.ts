@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { ElectricityBillComponent } from "./field-operator/electricity-bill/electricity-bill.component";
 import { ElectricityBillListComponent } from "./field-operator/electricity-bill-list/electricity-bill-list.component";
 
@@ -8,7 +8,7 @@ import { ElectricityBillListComponent } from "./field-operator/electricity-bill-
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    imports: [RouterOutlet, ElectricityBillComponent, ElectricityBillListComponent]
+    imports: [RouterOutlet, ElectricityBillComponent, ElectricityBillListComponent, RouterLink]
 })
 export class AppComponent {
   title = 'pracenje-racuna';

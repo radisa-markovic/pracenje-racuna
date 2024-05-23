@@ -1,9 +1,14 @@
+<header>
+  <nav>
+    <ul>
+      <li>
+        <a routerLink="admin">
+          Admin home
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
 <main class="main">
-  <h1>Pracenje racuna</h1> 
-  <app-electricity-bill></app-electricity-bill> 
-
-  <h2>All bills</h2>
-  <app-electricity-bill-list></app-electricity-bill-list>
+  <router-outlet />
 </main>
-
-<router-outlet />

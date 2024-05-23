@@ -1,0 +1,22 @@
+<h2>Svi korisnici:</h2>
+<ul>
+    @if(this.users.length > 0)
+    {
+        @for(user of this.users; track user.id) {
+            <li>
+                <p>Ime i prezime: {{ user.fullName }}</p>
+                <p>Korisničko ime: {{ user.username }}</p>
+                <p>Uloga: {{ user.role }}</p>
+                <a routerLink="{{user.id}}">
+                    Pogledaj
+                </a>
+            </li>
+        }
+    }
+    @else 
+    {
+        <li>
+            <p>Nije pronađen nijedan korisnik</p>
+        </li>
+    }
+</ul>
