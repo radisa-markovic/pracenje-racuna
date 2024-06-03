@@ -1,31 +1,56 @@
 <h2>Napravi korisnika</h2>
 <hr/>
-<form [formGroup]="newUserForm" (ngSubmit)="addNewUser()">
+<form (ngSubmit)="onFormSubmit()" #newUserForm="ngForm">
     <p><b>Uloga:</b></p>
     <ul>
         <li>
             <label for="newAdministrator">
                 Administrator
             </label>
-            <input type="radio" formControlName="role"  value="admin" id="newAdministrator" checked>
+            <input 
+                type="radio" 
+                ngModel
+                name="role"
+                value="admin"
+                id="newAdministrator" 
+                checked
+            />
         </li>
         <li>
             <label for="newSalesperson">
                 Prodavac
             </label>
-            <input type="radio" formControlName="role" value="salesperson" id="newSalesperson">
+            <input 
+                type="radio"
+                ngModel 
+                name="role" 
+                value="salesperson" 
+                id="newSalesperson"
+            />
         </li>
         <li>
             <label for="newOperator">
                 Operator
             </label>
-            <input type="radio" formControlName="role" value="operater" id="newOperator">
+            <input 
+                type="radio"
+                ngModel 
+                name="role" 
+                value="operater" 
+                id="newOperator"
+            />
         </li>
         <li>
             <label for="newReporter">
                 Reporter
             </label>
-            <input type="radio" formControlName="role" value="reporter" id="newReporter">
+            <input 
+                type="radio"
+                ngModel 
+                name="role" 
+                value="reporter" 
+                id="newReporter"
+            />
         </li>
     </ul>
 
@@ -33,24 +58,44 @@
         <label for="fullName">
             Ime i prezime:
         </label>
-        <input type="text" name="fullName" id="fullName" formControlName="fullName"/>
+        <input 
+            type="text"
+            name="fullName" 
+            id="fullName" 
+            required
+            ngModel
+            #fullName="ngModel"
+        />
     </div>
 
     <div style="display: flex; flex-direction: column;">
         <label for="username">
             Korisničko ime:
         </label>
-        <input type="text" name="username" id="username" formControlName="username"/>
+        <input 
+            type="text" 
+            name="username" 
+            id="username" 
+            ngModel
+            #username="ngModel"
+            required
+        />
     </div>
     
     <div style="display: flex; flex-direction: column;">
         <label for="password">
             Lozinka:
         </label>
-        <input type="password" name="password" id="password" formControlName="password"/>
+        <input 
+            type="password" 
+            name="password" 
+            id="password"
+            ngModel
+            #password="ngModel"
+        />
     </div>
 
-    <button type="submit" [disabled]="!newUserForm.valid">
+    <button type="submit">
         Dodaj korisnika
     </button>
 </form>

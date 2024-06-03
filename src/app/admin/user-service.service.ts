@@ -52,6 +52,7 @@ export class UserService {
 
   async deleteUser(userID: number | string)
   {
+    console.log(userID);
     fetch(`${this.userURL}/${userID}`, {
       method: "DELETE"
     }).then((response) => {

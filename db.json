@@ -1,35 +1,27 @@
 {
   "users": [
     {
-      "id": 0,
-      "fullName": "Mile Ilic",
-      "username": "MileMile",
-      "role": "admin"
+      "id": "3eb4",
+      "fullName": "Pera Peric",
+      "role": "",
+      "password": "123"
     },
     {
-      "id": "3882",
+      "id": "b6dd",
       "fullName": "Pera Peric",
-      "username": "PeraPera",
-      "role": "admin",
-      "password": "1234"
-    },
-    {
-      "id": "9060",
-      "fullName": "Pera Peric",
-      "username": "Pera1234",
-      "role": "operater",
-      "password": "1234"
+      "role": "",
+      "password": "123"
     }
   ],
   "electricityBills": [
     {
-      "id": 0,
+      "id": "0",
       "companyName": "Kompanija 1",
       "receiptImageURL": "",
       "price": 1000
     },
     {
-      "id": 1,
+      "id": "1",
       "companyName": "Kompanija 2",
       "receiptImageURL": "",
       "price": 2000

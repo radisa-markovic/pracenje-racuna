@@ -1,4 +1,4 @@
-<form>
+<form (ngSubmit)="onSubmit()" #submitForm="ngForm">
     <h2>Ime i prezime: {{ user.fullName }}</h2>
     <input 
         type="text" 
@@ -13,8 +13,13 @@
         id="" 
         [value]="user.username"
     />
-
+    <hr/>
     <button type="submit">
         Sacuvaj izmene
     </button>
+    <hr/>
 </form>
+
+<button (click)="onUserDelete()">
+    Obriši korisnika
+</button>
