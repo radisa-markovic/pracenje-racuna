@@ -1,4 +1,62 @@
 <h2>Svi korisnici:</h2>
+<h3>Filtriraj:</h3>
+<ul style="display: flex; gap: 15px; border: 3px solid black; padding: 2px 4px;">
+    <li>
+        <label style="margin-right: 10px;">Pretrazi</label>
+        <input type="text" name="" id="">
+    </li>
+    <li>
+        <div>
+            <label for="nameAscending">
+                <input 
+                    type="radio" 
+                    name="nameSorting" 
+                    id=""
+                    (change)="onNameSortChange($event)"
+                    value="nameAscending"
+                    checked
+                />
+                Ime i prezime rastuće
+            </label>
+            <label for="nameDescending">
+                <input 
+                    type="radio" 
+                    name="nameSorting" 
+                    id=""
+                    (change)="onNameSortChange($event)"
+                    value="nameDescending"
+                />
+                Ime i prezime opadajuće
+            </label>
+            <!-- <button (click)="onNameAscending()">
+                Ime i prezime rastuce
+            </button>
+            <button (click)="onNameDescending()">
+                Ime i prezime opadajuce
+            </button> -->
+        </div>
+    </li>
+    <li>
+        <label style="margin-right: 5px;">Odaberi ulogu</label>
+        <select (change)="onRoleChange($event)">
+            <option value="all">
+                Sve
+            </option>
+            <option value="administrator">
+                Administratori
+            </option>
+            <option value="operater">
+                Operateri
+            </option>
+            <option value="salesperson">
+                Prodavci
+            </option>
+            <option value="reporter">
+                Reporter
+            </option>
+        </select>
+    </li>
+</ul>
 <ul>
     @if(this.users.length > 0)
     {
@@ -11,6 +69,7 @@
                     Pogledaj
                 </a>
             </li>
+            <hr/>
         }
     }
     @else 

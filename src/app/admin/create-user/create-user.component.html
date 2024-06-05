@@ -65,7 +65,12 @@
             required
             ngModel
             #fullName="ngModel"
+            minlength="1"
         />
+        @if(!fullName.valid && fullName.touched)
+        {
+            <p>Neispravno ime i prezime</p>
+        }
     </div>
 
     <div style="display: flex; flex-direction: column;">
@@ -80,6 +85,10 @@
             #username="ngModel"
             required
         />
+        @if(!username.valid && username.touched)
+        {
+            <p>Neispravno korisnicko ime</p>
+        }
     </div>
     
     <div style="display: flex; flex-direction: column;">
@@ -92,10 +101,18 @@
             id="password"
             ngModel
             #password="ngModel"
+            minlength="7"
+            required
         />
+        @if(!password.valid && password.touched)
+        {
+            <p>
+                Lozinka mora imati bar 7 karaktera
+            </p>
+        }
     </div>
 
-    <button type="submit">
+    <button type="submit" [disabled]="!newUserForm.valid">
         Dodaj korisnika
     </button>
 </form>

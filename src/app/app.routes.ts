@@ -6,19 +6,26 @@ import { SingleUserComponent } from './admin/single-user/single-user.component';
 
 export const routes: Routes = [
     {
+        path: "",
+        pathMatch: "full",
+        redirectTo: "admin"
+    },
+    {
         path: "admin",
         component: LandingPageComponent,
+        children: [
+            {
+                path: "newUser",
+                component: CreateUserComponent,
+            },
+            {
+                path: "users",
+                component: UserListComponent
+            },
+            {
+                path: "users/:id",
+                component: SingleUserComponent
+            }
+        ]
     },
-    {
-        path: "admin/newUser",
-        component: CreateUserComponent,
-    },
-    {
-        path: "admin/users",
-        component: UserListComponent
-    },
-    {
-        path: "admin/users/:id",
-        component: SingleUserComponent
-    }
 ];

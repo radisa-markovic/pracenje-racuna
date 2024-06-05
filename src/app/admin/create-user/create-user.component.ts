@@ -1,6 +1,7 @@
 import { Component, ViewChild, inject } from '@angular/core';
 import { UserService } from '../user-service.service';
 import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-user',
@@ -11,19 +12,34 @@ import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule } from
 })
 export class CreateUserComponent {
   userService = inject(UserService);
-  @ViewChild('newUserForm') newUserForm!: NgForm;
+  @ViewChild('newUserForm', { static: false }) newUserForm!: NgForm;
   userRoles: string[] = ["admin", "salesperson", "operater", "reporter"];
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   onFormSubmit()
   {
-    console.log(this.newUserForm.value);
+    if(this.newUserForm.valid)
+    {
+      this.userService.postNewUser({
+        fullName: this.newUserForm.value.fullName,
+        username: this.newUserForm.value.username,
+        role: this.newUserForm.value.role,
+        password: this.newUserForm.value.password,
+      }).subscribe({
+        next: (value) => {
+          console.log(value);
+          this.newUserForm.reset();
+          this.router.navigate(['/admin/users']);
+        },
+        error: (error) => {
+          console.error(error);
+        }
+      });
+    }
 
-    this.userService.postNewUser({
-      fullName: this.newUserForm.value.fullName!,
-      role: this.newUserForm.value.role!,
-      password: this.newUserForm.value.password!,
-    }).then((response) => {
-      console.log(response);
-    })
   }
 }

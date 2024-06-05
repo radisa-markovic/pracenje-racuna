@@ -35,7 +35,12 @@ export class SingleUserComponent implements OnInit {
 
   onSubmit()
   {
-    console.log(this.submitForm.value);
+    this.userService.updateUser({
+      id: this.userId,
+      fullName: this.submitForm.value['fullName'],
+      username: this.submitForm.value['username']
+    });
+    // console.log(this.submitForm.value);
   }
 
   onUserDelete()

@@ -1,16 +1,53 @@
 {
   "users": [
     {
-      "id": "3eb4",
-      "fullName": "Pera Peric",
-      "role": "",
-      "password": "123"
+      "id": "b017",
+      "fullName": "Administrator Adminovic",
+      "username": "administrator",
+      "role": "administrator",
+      "password": "administrator"
     },
     {
-      "id": "b6dd",
-      "fullName": "Pera Peric",
-      "role": "",
-      "password": "123"
+      "id": "6f71",
+      "fullName": "Prodavac Prodavacevic",
+      "username": "prodavac",
+      "role": "salesperson",
+      "password": "prodavac"
+    },
+    {
+      "id": "5b23",
+      "fullName": "Operater",
+      "username": "operater1",
+      "role": "operater",
+      "password": "operater1234"
+    },
+    {
+      "id": "b5b6",
+      "fullName": "Reporter Reporterovic",
+      "username": "reporter",
+      "role": "reporter",
+      "password": "reporter"
+    },
+    {
+      "id": "896b",
+      "fullName": "Admin Drugi",
+      "username": "admin2",
+      "role": "admin",
+      "password": "123456789"
+    },
+    {
+      "id": "a110",
+      "fullName": "Prodavac drugi",
+      "username": "prodavac2",
+      "role": "salesperson",
+      "password": "11111111"
+    },
+    {
+      "id": "54a5",
+      "fullName": "Prodavac Treci",
+      "username": "prodavac3",
+      "role": "salesperson",
+      "password": "12345678"
     }
   ],
   "electricityBills": [

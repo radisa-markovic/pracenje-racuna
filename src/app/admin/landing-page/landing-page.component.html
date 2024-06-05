@@ -7,16 +7,27 @@
     <h2>
         Korisnici
     </h2>
-    <ul>
-        <li>
-            <a routerLink="newUser">
-                Napravi nalog
-            </a>
-        </li>
-        <li>
-            <a routerLink="users">
-                Svi korisnici
-            </a>
-        </li>
-    </ul>
+    <nav style="border-bottom: 3px solid dodgerblue">
+        <ul style="display: flex; gap: 10px; color: white;">
+            <li>
+                <a 
+                    routerLink="newUser"
+                    routerLinkActive="activeLink"
+                >
+                    Napravi nalog
+                </a>
+            </li>
+            <li>
+                <a 
+                    routerLink="users"
+                    routerLinkActive="activeLink"
+                >
+                    Svi korisnici
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
 </section>

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,12 +9,28 @@ import { User } from '../models/user';
 export class UserService {
   private userURL: string = "http://localhost:3000/users";
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  async getUsers()
+  getUsers(nameAscending: boolean, userRole: string): Observable<User[]>
   {
-    const response = await fetch(this.userURL);
-    return await response.json() ?? [];
+    let params = new HttpParams();
+    if(nameAscending)
+    {
+      params = params.append("_sort", "fullName");      
+    }
+    else
+    {
+      params = params.append("_sort", "-fullName");
+    }
+
+    if(userRole !== "all")
+    {
+      params = params.append("role", userRole);      
+    }
+
+    return this.http.get<User[]>(this.userURL, {
+        params: params
+    });
   }
 
   async getUser(id: number | string)
@@ -21,27 +39,16 @@ export class UserService {
     return await response.json();
   }
 
-  async postNewUser(newUser: Partial<User>)
+  postNewUser(newUser: Partial<User>): Observable<any>
   {
-    fetch(this.userURL, {
-      method: "POST",
-      body: JSON.stringify({
-        fullName: newUser.fullName,
-        username: newUser.username,
-        role: newUser.role,
-        password: newUser.password
-      })
-    }).then((response) => {
-      console.log(response);
-    }).catch((error) => {
-      console.error(error);
-    });
+    return this.http.post(this.userURL, newUser);
   }
 
   async updateUser(newUserData: Partial<User>)
   {
+    console.log(newUserData);
     fetch(`${this.userURL}/${newUserData.id}`, {
-      method: "PUT",
+      method: "PATCH",
       body: JSON.stringify(newUserData)
     }).then((response) => {
       console.log(response);
